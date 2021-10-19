@@ -1,35 +1,34 @@
-# employee-tracker
+# Employee Tracker
 
-![screenshot](/assets/screenshot.png)
+  ----
+## Description
+### Easily view, modify, and track the employees of a business with key information pertaining to role, identification number, reporting manager, and more.
 
-As the image illustrates, your schema should contain the following three tables:
+----
 
-Department
+## Table of Contents
 
-id: INT PRIMARY KEY
+  *  [Installation](#installation)
+  *  [Usage](#usage)
+  *  [Credit](#credit)
+  *  [License](#license)
 
-name: VARCHAR(30) to hold department name
+----
 
-Role
+## Installation
+Clone the repository onto your local machine. Use the command 'npm install' to download the nessacery packages to run the application. You will also need to download and install MySQL in order to create a local database to manipulate.
 
-id: INT PRIMARY KEY
+----
 
-title: VARCHAR(30) to hold role title
+## Usage
+Use the command 'npm start' to access the main menu of actions and interact with your employee database.
 
-salary: DECIMAL to hold role salary
+----
 
-department_id: INT to hold reference to department role belongs to
+## Credit
+Hannah Roddy, 2021, hannah.roddy@gmail.com, wwww.github.com/hroddy
 
-Employee
+----
 
-id: INT PRIMARY KEY
-
-first_name: VARCHAR(30) to hold employee first name
-
-last_name: VARCHAR(30) to hold employee last name
-
-role_id: INT to hold reference to employee role
-
-manager_id: INT to hold reference to another employee that is manager of the current employee. This field might be null if the employee has no manager.
-
-You might want to use a separate file containing functions for performing specific SQL queries you'll need to use. A constructor function or class could be helpful for organizing these. You might also want to include a seeds.sql file to pre-populate your database. This will make the development of individual features much easier.
+## License
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
