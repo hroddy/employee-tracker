@@ -10,67 +10,62 @@ const app = express();
 
 //inquirer
 
-const promptMain = {
-    viewDepartments: 'View all departments',
-    viewRoles: 'View all roles',
-    viewEmployees: 'View all employees',
-    addDepartment: 'Add a department',
-    addRole: "Add a role",
-    addEmployee: "Add an employee",
-    updateEmployeeRole: "Update an employee role",
-    done: "Save and exit"
-};
+const mainMenu = [{
+    type: 'list',
+    name: 'mainMenu',
+    choices: [
+    'View all departments',
+    'View all roles',
+    'View all employees',
+    'Add a department',
+    "Add a role",
+    "Add an employee",
+    "Remove an employee",
+    "Update an employee role",
+    "Save and exit"
+    ]
+}];
 
 function appMenu() {
     inquirer
     //main menu of actions
-        .prompt({
-            name: 'mainMenu',
-            type: 'list',
-            message: 'Please make a selection.',
-            choices: [
-                promptMain.viewDepartments,
-                promptMain.viewRoles,
-                promptMain.viewEmployees,
-                promptMain.addDepartment,
-                promptMain.addRole,
-                promptMain.addEmployee,
-                promptMain.updateEmployeeRole,
-                promptMain.done
-            ]
-        })
+        .prompt(mainMenu)
         .then(answer => {
-            console.log('answer', answer);
+            console.log('selected:', answer);
             switch (answer.mainMenu) {
-                case promptMain.viewDepartments:
+                case 'View all departments':
                     departmentService.viewDepartments(appMenu);
                     break;
 
-                case promptMain.viewRoles:
+                case 'View all roles':
                     roleService.viewRoles(appMenu);
                     break;
 
-                case promptMain.viewEmployees:
+                case 'View all employees':
                     employeeService.viewEmployees(appMenu);
                     break;
 
-                case promptMain.addDepartment:
+                case 'Add a department':
                     departmentService.addDepartment(appMenu);
                     break;
 
-                case promptMain.addRole:
+                case "Add a role":
                     roleService.addRole(appMenu);
                     break;
 
-                case promptMain.addEmployee:
+                case "Add an employee":
                     employeeService.addEmployee(appMenu);
                     break;
 
-                case promptMain.updateEmployeeRole:
+                case "Remove an employee":
+                    employeeService.deleteEmployee(appMenu);
+                    break;
+
+                case "Update an employee role":
                     employeeService.updateRole(appMenu);
                     break;
 
-                case promptMain.done:
+                case "Save and exit":
                     db.end();
                     break;
             }

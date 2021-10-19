@@ -17,7 +17,6 @@ class DepartmentService {
         console.table(res);
         //return to main menu
         appMenu();
-
     });
 
     }
@@ -37,13 +36,12 @@ class DepartmentService {
             message: 'What is the name of the new department?'
         }
         ]).then(answers => {
-            const department = (answers.id, answers.name)
-            const { id, name } = department;
+            const { id, name } = answers;
             const sql = `INSERT into department VALUES (${id}, '${name}');`;
             console.log(`New department ${name}, ${id} successfully added.`);
-            this.connection.promise().query(sql);
+            this.connection.query(sql);
             //then display newly updated department table
-            this.connection.promise().query(`SELECT * FROM department;`, (err, res) => {
+            this.connection.query(`SELECT * FROM department;`, (err, res) => {
                 if (err) throw err;
                 console.log('View all departments');
                 console.table(res);
@@ -51,7 +49,8 @@ class DepartmentService {
             //return to main menu
             appMenu();
         })
-    };
+    }
+
 }
 
 module.exports = new DepartmentService(db);
