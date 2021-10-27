@@ -9,6 +9,7 @@
 ## Table of Contents
 
   *  [Installation](#installation)
+  *  [Walkthrough](#walkthrough)
   *  [Usage](#usage)
   *  [Credit](#credit)
   *  [License](#license)
@@ -17,6 +18,10 @@
 
 ## Installation
 Clone the repository onto your local machine. Use the command 'npm install' to download the nessacery packages to run the application. You will also need to download and install MySQL in order to create a local database to manipulate.
+
+----
+## Walkthrough
+ Link to walkthrough video: https://watch.screencastify.com/v/4tOvdhLSQZgoSLwKTZkU
 
 ----
 
